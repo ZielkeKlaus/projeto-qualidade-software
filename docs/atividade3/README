@@ -1,0 +1,83 @@
+Aluno: Klaus Rosa Zielke - 782410044
+
+1. Escopo das Funcionalidades
+Fluxo de Registro de Novos Usuários.
+
+Motor de Busca e Filtragem de Catálogo.
+
+Gerenciamento de Itens no Carrinho.
+
+Processo de Fechamento de Venda (Checkout).
+
+Gateway de Transações Financeiras.
+
+2. Abordagem por Níveis de Teste
+Cadastro de Usuário
+Unitário: Validação lógica de máscaras (CPF/Telefone) e requisitos de complexidade de senha.
+
+Integração: Verificação da persistência de dados entre a camada de serviço e o banco de dados.
+
+Sistema: Simulação de ponta a ponta do registro, garantindo que o token de sessão seja gerado.
+
+Aceitação: Validação da experiência do usuário ao criar o perfil sem obstáculos cognitivos.
+
+Busca e Listagem
+Unitário: Teste dos algoritmos de ordenação (preço, relevância) e lógica de filtros.
+
+Integração: Consumo de endpoints da API para garantir que o JSON retornado esteja correto.
+
+Sistema: Verificação da renderização correta dos cards de produto na interface.
+
+Aceitação: Garantia de que o cliente localize itens específicos em menos de três cliques.
+
+Carrinho de Compras
+Unitário: Testes matemáticos para soma de subtotais, descontos e aplicação de cupons.
+
+Integração: Sincronização do estado do carrinho local com a conta do usuário no servidor.
+
+Sistema: Teste de persistência: garantir que o item permaneça no carrinho após logout/login.
+
+Aceitação: Confirmação de que o usuário entende como alterar quantidades ou remover itens.
+
+Checkout e Pagamento
+Unitário: Verificação da validade de dados sensíveis (número do cartão, CVV) via Regex.
+
+Integração: Comunicação segura com APIs de terceiros (Webhooks de pagamento).
+
+Sistema: Fluxo completo desde a confirmação de estoque até a emissão do número do pedido.
+
+Aceitação: O usuário recebe um feedback visual claro de "Sucesso" ou "Falha" na transação.
+
+3. Matriz de Priorização e Riscos
+Funcionalidades de Alta Criticidade
+Processamento de Pagamentos: Falhas aqui impedem a entrada de receita.
+
+Fluxo de Checkout: Gargalos nesta etapa aumentam a taxa de abandono.
+
+Integridade do Carrinho: Erros de cálculo geram problemas jurídicos e perda de confiança.
+
+Justificativa de Risco
+O foco principal é o fluxo financeiro. Inconsistências em cálculos de frete ou falhas na comunicação com o banco podem paralisar a operação da startup e causar danos à imagem da marca.
+
+4. Arquitetura da Pirâmide de Testes
+Base (Testes Unitários): Foco em cobertura massiva. São automatizados, rodam em segundos e isolam falhas lógicas rapidamente.
+
+Meio (Testes de Integração): Validam a "conversa" entre microserviços e camadas do sistema.
+
+Topo (Sistema/UI): Testes manuais ou automatizados de interface. São mantidos em menor volume por serem mais lentos e suscetíveis a quebras por mudanças visuais.
+
+Raciocínio: Uma base sólida de testes unitários reduz o custo de manutenção e permite que a equipe identifique erros antes mesmo de realizar o deploy.
+
+5. Estratégias de Testes em Produção
+O sistema deve adotar testes em produção?
+Sim, sob protocolos de segurança.
+
+Técnicas Sugeridas:
+
+Canary Releases: Liberar novas funcionalidades para apenas 5% dos usuários inicialmente.
+
+Feature Flags: Capacidade de desativar uma função problemática instantaneamente sem novo deploy.
+
+Observabilidade: Monitoramento em tempo real de logs de erro e latência da API.
+
+Justificativa: Certos comportamentos só se manifestam sob carga real e em infraestruturas distribuídas, tornando a validação em produção essencial para a resiliência do software.

@@ -1,0 +1,97 @@
+Atividade PBL – Aula 5
+Análise de Testes Funcionais vs. Estruturais – LocalEats
+Aluno: Klaus Rosa Zielke - 782410044
+
+1. Definição da Funcionalidade
+Funcionalidade selecionada:
+Mecanismo de Pesquisa de Estabelecimentos.
+
+Descrição:
+Este recurso permite que os clientes localizem restaurantes na base de dados do LocalEats através de palavras-chave (nome, especialidade, ingredientes) ou localização. O objetivo é reduzir o tempo de jornada do usuário, entregando opções pertinentes de forma ágil e intuitiva.
+
+Expectativa do Usuário:
+O cliente espera que a busca seja resiliente a pequenos erros de digitação, que os resultados sejam classificados por relevância e que os filtros aplicados (como distância ou preço) reflitam exatamente o estado atual dos estabelecimentos.
+
+2. Estratégia de Testes Caixa-Preta (Visão Funcional)
+Nesta abordagem, o foco é o comportamento externo, tratando o sistema como um módulo onde apenas entradas e saídas são analisadas, sem considerar a implementação técnica.
+
+Cenários de Teste (Black-box)
+Cenário: Busca Literal
+
+Ação: Inserir o nome completo e correto de um parceiro.
+
+Resultado Esperado: O restaurante deve aparecer como o primeiro item da lista.
+
+Cenário: Pesquisa por Categoria (Tag)
+
+Ação: Digitar um tipo de culinária (ex: "Japonesa").
+
+Resultado Esperado: Listagem exclusiva de locais que possuam essa tag em seu cadastro.
+
+Cenário: Busca Parcial/Incompleta
+
+Ação: Digitar apenas o início do nome de um local.
+
+Resultado Esperado: O sistema deve sugerir ou listar estabelecimentos que contenham aquele prefixo.
+
+Cenário: Combinação de Filtros Avançados
+
+Ação: Pesquisar por "Pizza" filtrando por "Aberto Agora" e "Entrega Grátis".
+
+Resultado Esperado: Exibição apenas dos locais que atendam simultaneamente aos três critérios.
+
+Identificação de Falhas Funcionais
+Através desta técnica, podemos detectar:
+
+Resultados irrelevantes ou "lixo" na busca;
+
+Falhas na atualização de filtros em tempo real;
+
+Ausência de feedback visual (Empty States) quando nada é encontrado;
+
+Lentidão excessiva que prejudica a usabilidade (UX).
+
+3. Estratégia de Testes Caixa-Branca (Visão Estrutural)
+Aqui a análise foca na lógica interna, percorrendo os fluxos de controle, condicionais e manipulação de dados no backend.
+
+Engenharia de Lógica Hipotética
+O backend deve processar a string de busca, realizar a sanitização (remover caracteres especiais/SQL Injection), normalizar para minúsculas e comparar com os índices no banco de dados, aplicando as cláusulas WHERE dos filtros selecionados.
+
+Situações de Cobertura de Código
+Validação de Input: Verificar como o código lida com entradas nulas, espaços vazios ou scripts maliciosos.
+
+Fluxos Condicionais (If/Else): Garantir que o caminho "Nenhum resultado encontrado" seja executado corretamente sem quebrar a aplicação.
+
+Performance de Consulta: Testar a eficiência das queries SQL ou buscas no NoSQL para garantir que não haja timeout em bancos de dados volumosos.
+
+Identificação de Erros Estruturais
+Nesta camada, identificamos:
+
+Vulnerabilidades de segurança (injeção de código);
+
+Caminhos "mortos" (código que nunca é executado);
+
+Vazamento de memória ou conexões abertas com o banco;
+
+Erros de tipagem ou tratamento inadequado de exceções de rede.
+
+4. Análise Comparativa de Metodologias
+
+Característica    | Caixa-Preta (Funcional)    | Caixa-Branca (Estrutural)
+
+Perspectiva       | Focada no usuário final    | Focada no desenvolvedor e código-fonte.
+                    e requisitos.
+objetivo          | Validar "O QUE" o          | Validar "COMO" o sistema faz.
+                    sistema faz.                     
+Vantagem          | Detecta falhas de negócio  | Detecta bugs lógicos e falhas de segurança.
+                    e interface.                                     ]
+
+5. Reflexão Crítica para o LocalEats
+Qual a prioridade no momento?
+A integração entre ambas é vital. Como o LocalEats é um ecossistema que lida com transações e parceiros externos, falhas na busca não são apenas visuais (Caixa-Preta), mas podem indicar problemas de indexação ou performance no banco (Caixa-Branca).
+
+Uma única técnica bastaria?
+Não. O teste Caixa-Preta garante que o cliente está satisfeito, mas o Caixa-Branca garante que o sistema é sustentável e seguro. Para uma startup em crescimento, negligenciar a estrutura interna pode levar a um "débito técnico" impagável no futuro.
+
+Conclusão
+A atividade evidenciou que a qualidade total só é alcançada quando unimos a validação do comportamento esperado com a verificação da integridade lógica. Para o meu desenvolvimento como analista, compreender que o teste começa na estrutura do código e termina na experiência do usuário é o passo fundamental para entregas de alto nível.
