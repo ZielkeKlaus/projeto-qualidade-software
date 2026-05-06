@@ -1,0 +1,82 @@
+Atividade PBL – Aula 6
+Planejamento e Execução de Testes Estritos – LocalEats
+Estudante: Klaus Rosa Zielke
+
+Matrícula: 782410044
+
+1. Plano de Testes (Test Plan)
+Objetivo Estratégico
+Estabelecer uma rotina de validação rigorosa sobre o núcleo funcional do LocalEats, assegurando que a jornada do usuário (do acesso à compra) seja fluida e livre de comportamentos impeditivos.
+
+Escopo de Atuação
+Incluso: Autenticação de perfil, motor de busca, gerenciamento de sacola de compras e fluxo transacional.
+
+Excluso: Testes de carga/stress, auditorias de segurança e compatibilidade de hardware legado.
+
+Metodologia
+Adoção de Testes de Caixa-Preta com foco em requisitos funcionais.
+
+Execução Manual baseada em roteiros predefinidos.
+
+Análise de Caminho Feliz (Happy Path) e Caminhos de Exceção.
+2. Especificação de Casos de Teste (Test Cases)
+ID   | Descrição de Cenário         | Critério de Aceite (Resultado Esperado)
+
+CT01 | Autenticação com credenciais | Redirecionamento imediato para a Dashboard/Home.
+       legítimas.
+
+CT02 | Tentativa de acesso com      | Bloqueio do acesso e exibição de alerta de segurança.
+       senha divergente.
+
+CT03 | Pesquisa por palavra-chave   | Exibição de estabelecimentos que possuam a 
+       de categoria (ex: "Burguer").  tag correspondente.
+
+CT04 | Conclusão de ciclo de        | Geração de número de pedido e 
+       compra com itens válidos.      confirmação de sucesso.
+
+CT05 | Tentativa de checkout        | Desativação do botão de finalização 
+       sem itens selecionados.        ou alerta de "Carrinho Vazio".
+
+3. Relatório de Execução e Evidências
+ID   | Status   |  Observações Técnicas (Evidência)
+
+CT01 | OK       | Login processado sem latência perceptível.
+
+CT02 | FALHA    | O sistema não fornece feedback; a página 
+                  apenas recarrega, confundindo o usuário.
+
+CT03 | OK       | Resultados filtrados corretamente conforme 
+                  o banco de dados.
+
+CT04 | FALHA    | Interrupção inesperada no processamento 
+                  final; pedido não registrado no histórico.
+
+CT05 | OK       | Validação de consistência do carrinho 
+                  operando conforme o esperado.
+
+4. Diagnóstico de Qualidade
+Taxa de Sucesso: 60% (3/5).
+
+Críticas Identificadas:
+
+Deficiência de Feedback: O sistema peca na comunicação de erros ao usuário (Silent Failures).
+
+Ruptura Transacional: A falha no fechamento do pedido (CT04) é de severidade Crítica, pois impacta diretamente o faturamento.
+
+5. Reflexão e Melhoria Contínua
+Impacto do Planejamento:
+O uso deste roteiro foi decisivo para evitar a "cegueira de testes". Sem um plano, falhas sutis como a falta de mensagens de erro (CT02) poderiam ser ignoradas, prejudicando a retenção de usuários.
+
+Descobertas Pós-Execução:
+A falha crítica no fluxo de fechamento de pedido só foi detectada ao simularmos o processo completo. Isso reforça a necessidade de testes de integração ponta-a-ponta.
+
+Plano de Ação para o Ciclo Seguinte:
+
+Implementar Testes Automatizados de Regressão para os fluxos de checkout.
+
+Refinar a camada de UI para fornecer mensagens de erro mais descritivas.
+
+Expandir os testes para cenários de conectividade instável.
+
+Conclusão Final do Módulo
+Através destas cinco etapas, consolidamos uma visão profissional de QA para a startup LocalEats. A transição de um sistema com falhas desconhecidas para um produto com diagnósticos claros é o primeiro passo para garantir a maturidade e a escalabilidade do software no mercado competitivo de delivery.
