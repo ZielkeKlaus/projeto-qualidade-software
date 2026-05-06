@@ -1,0 +1,30 @@
+Nome: Klaus Rosa Zielke 782410044
+
+Análise de Qualidade de Software
+Problema: Queda de performance e lentidão durante períodos de alta demanda.
+Atributo: Eficiência de Desempenho.
+Justificativa: A falha está diretamente ligada ao comportamento temporal do software. O sistema não consegue manter tempos de resposta aceitáveis sob carga, evidenciando uma deficiência na capacidade de processamento simultâneo para múltiplos acessos.
+
+Problema: Dificuldade de navegação e interface pouco amigável ao usuário.
+Atributo: Usabilidade.
+Justificativa: O software apresenta lacunas na inteligibilidade e na estética da interface. Quando o usuário não compreende o fluxo de navegação, o sistema falha em promover o reconhecimento das funções, resultando em uma experiência de uso negativa.
+
+Problema: Inconsistência nos dados retornados pelas ferramentas de pesquisa.
+Atributo: Adequação Funcional.
+Justificativa: O sistema apresenta falhas na exatidão funcional, pois os resultados entregues não correspondem aos critérios solicitados. Isso compromete a completude das tarefas que dependem da precisão dessas informações.
+
+Problema: Instabilidade e bugs que ocorrem apenas em hardware ou sistemas operacionais específicos.
+Atributo: Portabilidade.
+Justificativa: Evidencia-se uma falta de adaptabilidade do software. O produto não demonstra a robustez necessária para operar de forma consistente em diferentes ambientes (ecossistemas distintos), dificultando sua instalação e operação em variados dispositivos.
+
+Problema: Fluxos de execução complexos para tarefas de baixa complexidade.
+Atributo: Usabilidade.
+Justificativa: O sistema compromete a operabilidade ao exigir esforço excessivo para ações rotineiras. A falta de um design focado na facilidade de uso impede que o usuário execute comandos de forma fluida e autônoma.
+
+Problema: Perda de informações e dados inseridos após o refresh do navegador.
+Atributo: Confiabilidade.
+Justificativa: Este cenário aponta uma carência na maturidade e na tolerância a falhas do sistema. A incapacidade de preservar o estado da aplicação sob condições comuns de navegação afeta diretamente a percepção de segurança e estabilidade do produto.
+
+Problema: Divergência de funcionalidades e layout entre as plataformas desktop e mobile.
+Atributo: Portabilidade / Usabilidade.
+Justificativa: O software falha na coexistência e na substituibilidade entre plataformas. A ausência de uma experiência responsiva e uniforme indica que o sistema não foi devidamente otimizado para transitar entre diferentes interfaces de usuário.

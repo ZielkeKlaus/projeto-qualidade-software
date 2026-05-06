@@ -1,0 +1,143 @@
+Diagnóstico de Qualidade – Startup Local Eats
+Disciplina: Qualidade de Software
+
+Aula 3 – Papéis, Responsabilidades e Práticas de QA
+
+Aluno: Klaus Rosa Zielke - 782410044
+
+1. Diagnóstico da Situação Atual
+1.1 Papéis atuais identificados
+Desenvolvedores (focados em codificação);
+
+Product Manager (focado em negócio);
+
+1.2 Quem é responsável pela qualidade hoje?
+Atualmente, a qualidade parece ser uma atividade reativa e descentralizada. A responsabilidade recai informalmente sobre os desenvolvedores, que realizam testes ad-hoc (manuais e rápidos) simultaneamente à escrita do código, sem uma metodologia de validação estruturada.
+
+1.3 Problemas identificados
+Instabilidade no checkout (erros críticos no encerramento de pedidos);
+
+Falhas de integridade de dados (duplicação de pedidos enviados aos restaurantes);
+
+Leaking de defeitos para o ambiente de produção (funcionalidades entregues com bugs);
+
+Ausência de uma governança de QA ou definição clara de quem deve validar as entregas.
+
+1.4 Impactos desses problemas
+A carência de processos de verificação resulta na entrega de um software pouco confiável. Isso gera retrabalho para a equipe técnica, prejuízo financeiro para os estabelecimentos parceiros e uma alta taxa de abandono (churn) por parte dos usuários finais insatisfeitos.
+
+1.5 A qualidade é responsabilidade de quem?
+Embora a mentalidade de qualidade deva ser compartilhada, a execução e a gestão devem ser atribuídas a papéis específicos e bem definidos. Sem essa especialização, o processo de validação torna-se secundário perante a urgência dos prazos de desenvolvimento, prejudicando o rigor técnico necessário para minimizar falhas.
+
+2. Papéis da Equipe Propostos
+2.1 Lista de papéis
+Fullstack Developer;
+
+QA Engineer (Analista de Qualidade);
+
+System Analyst (Analista de Sistemas);
+
+DevOps Engineer;
+
+Product Manager (PO);
+
+Papel   | Responsabilidades principais  | Relação com a qualidade
+
+Dev     | Implementação técnica de      | Assegurar a integridade do
+          requisitos e manutenção         código via Testes Unitários
+          corretiva.	                  e padrões de Clean Code.
+
+QA      | Elaboração de planos de       | Guardião dos critérios de  
+          teste, automação e reporte      aceitação; garante que o
+          de incidentes.                  produto atenda às expectativas 
+                                          do usuário.
+
+DvOps   | Gestão de CI/CD,              | Garantir a estabilidade do ambiente
+          monitoramento de                e a segurança das atualizações
+          infraestrutura e logs.          em produção.
+
+Analista| Mapeamento de processos       | Prevenir erros de lógica e ambiguidades
+          e especificações de             antes mesmo do ínicio do desenvolvimento.
+          requisitos técnicos.          
+
+Gerente | Visão estratégica do          | Garantir que o valor de negócio seja
+          produto e priorização           entregue e que o produto resolva a 
+          do Backlog.                     dor do cliente.
+
+3. Práticas de QA Sugeridas
+3.1 Lista de práticas
+Institucionalização do papel de QA e do Analista de Requisitos na Squad.
+
+Implementação de Critérios de Aceite baseados nas necessidades do usuário.
+
+Execução de Testes de Regressão e Validação de Fluxos Críticos antes de cada release.
+
+3.2 Explicação das práticas
+Prática 1: Especialização de Funções
+Garantir que cada membro da equipe possua um escopo de atuação claro. Ao definir responsáveis por requisitos e testes, evita-se a sobrecarga dos desenvolvedores e assegura-se que a qualidade não seja negligenciada.
+
+Prática 2: Validação de Requisitos
+Estabelecer um processo onde cada funcionalidade só é considerada "pronta" se atender estritamente ao que foi acordado com o cliente, evitando desvios de escopo e funcionalidades inúteis.
+
+Prática 3: Testes de Ciclo de Vida (End-to-End)
+Realizar simulações completas da jornada do usuário (do pedido à entrega) para identificar bugs em funcionalidades básicas e campos obrigatórios, impedindo que falhas triviais cheguem ao consumidor.
+
+4. Anúncios de Contratação
+4.1 Vaga 1 – Desenvolvedor(a) Fullstack Pleno
+Descrição da vaga:
+Buscamos um profissional versátil para atuar na arquitetura e implementação de soluções escaláveis, com foco em performance e qualidade de código.
+
+Responsabilidades:
+
+Arquitetura de novas features (Front e Back);
+
+Refatoração e correção de débitos técnicos;
+
+Implementação de testes automatizados unitários.
+
+Requisitos obrigatórios:
+
+Domínio de React, Node.js e TypeScript;
+
+Experiência com bancos de dados relacionais (SQL);
+
+Gestão de versão com Git.
+
+Requisitos desejáveis:
+
+Conhecimento em Docker e AWS;
+
+Familiaridade com metodologias ágeis (Scrum/Kanban).
+
+4.2 Vaga 2 – Analista de QA / Tester
+Descrição da vaga:
+Oportunidade para profissionais detalhistas que desejam liderar a estratégia de qualidade, garantindo entregas robustas e sem falhas para nossos usuários.
+
+Responsabilidades:
+
+Criação de casos de teste e roteiros de homologação;
+
+Documentação detalhada de bugs e acompanhamento de correções;
+
+Gestão de ambientes de staging e produção.
+
+Requisitos obrigatórios:
+
+Experiência em testes funcionais e de usabilidade;
+
+Certificação técnica na área de testes (ex: CTFL);
+
+Excelente capacidade de comunicação técnica.
+
+Requisitos desejáveis:
+
+Noções de automação de testes (Cypress/Selenium);
+
+Conhecimento em ferramentas de gestão de bugs (Jira/Trello).
+
+5. Conclusão da Equipe
+Aprendizado: A atividade reforçou a percepção de que a qualidade de software não é um evento isolado, mas um processo contínuo que depende de uma estrutura organizacional bem definida. A separação de funções permite um olhar mais crítico sobre o produto.
+
+Dificuldades: O maior desafio foi simular a estruturação de uma equipe equilibrada que pudesse mitigar erros técnicos e de negócio simultaneamente.
+
+Melhorias Propostas: Implementação imediata de uma esteira de testes automatizados e a contratação de especialistas em QA para organizar o fluxo de trabalho, garantindo que as funcionalidades básicas sejam sempre validadas antes do deploy.          
